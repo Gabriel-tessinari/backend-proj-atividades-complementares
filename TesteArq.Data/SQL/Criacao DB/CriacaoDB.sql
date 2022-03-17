@@ -5,11 +5,20 @@ Create DATABASE HorasDB
 -- Depois Rodar
 Use HorasDB
 
-Create table [dbo].[Curso](
+Create table [dbo].[Area](
     Id INT IDENTITY(1,1) NOT NULL,
     Name VARCHAR(MAX) NOT NULL
 
+    CONSTRAINT PK_Area PRIMARY KEY (Id)
+)
+
+Create table [dbo].[Curso](
+    Id INT IDENTITY(1,1) NOT NULL,
+    Name VARCHAR(MAX) NOT NULL,
+	AreaId int NOT null
+
     CONSTRAINT PK_Curso PRIMARY KEY (Id)
+    CONSTRAINT FK_Curso_Area FOREIGN KEY (AreaId) REFERENCES Area(Id)
 )
 
 CREATE TABLE [dbo].[Aluno](
@@ -55,8 +64,8 @@ CREATE TABLE [dbo].[Pontuacao](
 CREATE TABLE [dbo].[Conversao](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[PontuacaoId] int not null,
-	[IntervaloInic] time not null,
-	[IntervaloFim] time not null,
+	[IntervaloInic] int not null,
+	[IntervaloFim] int not null,
 	[Pontuacao] Decimal(2,2) not null,
 
     CONSTRAINT PK_Conversao PRIMARY KEY (Id),
@@ -77,7 +86,7 @@ CREATE TABLE [dbo].[HorasComplementares](
 	[Certificado] varchar(max) not null,
 	[StatusId] int not null,
 	[Observacao] varchar(max) not null,
-	[Horas] time not null,
+	[Horas] int not null,
 
     CONSTRAINT PK_HorasComplementares PRIMARY KEY (Id),
 	CONSTRAINT FK_HorasComplementares_Aluno FOREIGN KEY ([AlunoId]) REFERENCES Aluno(Id),
