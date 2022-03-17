@@ -9,6 +9,8 @@ namespace TesteArq.Data.Context
 
         public DbSet<Aluno> Aluno { get; set; }
         public DbSet<Curso> Curso { get; set; }
+        public DbSet<HorasComplementares> HorasComplementares { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Aluno>().ToTable("Aluno");

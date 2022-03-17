@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TesteArq.Application.DTOs;
 using TesteArq.Application.Interface;
-using TesteArq.Domain.Entity;
 
 namespace TesteArq.API.Controllers
 {
