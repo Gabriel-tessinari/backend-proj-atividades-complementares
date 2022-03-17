@@ -20,6 +20,8 @@ builder.Services.AddScoped<IAlunoService, AlunoService>();
 builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
 builder.Services.AddScoped<ICursoService, CursoSerivce>();
 builder.Services.AddScoped<ICursoRepository, CursoRepository>();
+builder.Services.AddScoped<IHorasComplementaresService, HorasComplementaresSerivce>();
+builder.Services.AddScoped<IHorasComplementaresRepository, HorasComplementaresRepository>();
 builder.Services.AddAutoMapper(typeof(DtoMappingProfile));
 
 
