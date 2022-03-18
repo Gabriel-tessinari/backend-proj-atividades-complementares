@@ -1,5 +1,6 @@
 CREATE TABLE [dbo].[Atividades](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] varchar(max) NOT NULL,
 	[GrupoAtividadesId] int not null,
 	[ConverterHoras] bit not null
 

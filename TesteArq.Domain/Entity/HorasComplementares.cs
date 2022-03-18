@@ -17,7 +17,6 @@ namespace TesteArq.Domain.Entity
         public int StatusId { get; set; }
         public string Observacao { get; set; }
         public int Horas { get; set; }
-
-        public virtual Aluno Aluno { get; set; }
+        public virtual Aluno? Aluno { get; set; }
     }
 }

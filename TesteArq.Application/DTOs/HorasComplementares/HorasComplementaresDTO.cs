@@ -20,7 +20,7 @@ namespace TesteArq.Application.DTOs.HorasComplementares
         public string Observacao { get; set; }
         public int Horas { get; set; }
 
-        public virtual Aluno Aluno { get; set; }
+        public virtual Aluno? Aluno { get; set; }
 
     }
 }
