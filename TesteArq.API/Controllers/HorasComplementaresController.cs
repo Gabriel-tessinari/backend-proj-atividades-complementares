@@ -17,72 +17,37 @@ namespace TesteArq.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<HorasComplementaresDTO>>> Get()
         {
-            try
-            {
-                return Ok(await _horasComplementaresService.GetAll());
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _horasComplementaresService.GetAll());
         }
 
         // GET api/<HorasComplementaresController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult<HorasComplementaresDTO>> Get(int id)
         {
-            try
-            {
                 return Ok(await _horasComplementaresService.GetById(id));
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
         }
 
         // POST api/<HorasComplementaresController>
         [HttpPost]
         public async Task<ActionResult<CreateHorasComplementaresDTO>> Post([FromBody] CreateHorasComplementaresDTO horasComplementares)
         {
-            try
-            {
-                return Ok(await _horasComplementaresService.Add(horasComplementares));
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _horasComplementaresService.Add(horasComplementares));
         }
 
         // PUT api/<HorasComplementaresController>/5
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] HorasComplementaresDTO horasComplementares)
         {
-            try
-            {
-                await _horasComplementaresService.Update(horasComplementares);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            await _horasComplementaresService.Update(horasComplementares);
+            return Ok();
         }
 
         // DELETE api/<HorasComplementaresController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            try
-            {
-                await _horasComplementaresService.Delete(id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            await _horasComplementaresService.Delete(id);
+            return Ok();
         }
         
     }
