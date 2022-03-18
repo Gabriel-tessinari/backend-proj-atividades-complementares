@@ -27,6 +27,7 @@ builder.Services.AddAutoMapper(typeof(DtoMappingProfile));
 
 
 var app = builder.Build();
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -35,7 +36,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
+
 namespace TesteArq.API.Middlewares
 {
     public class ExceptionMiddleware
@@ -38,15 +39,14 @@ namespace TesteArq.API.Middlewares
             if (exception == null)
                 throw new ArgumentNullException(nameof(exception));
 
-            // context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = StatusCodes.Status400BadRequest;
             return context.Response.WriteAsync(JsonConvert.SerializeObject(new
             {
                 success = false,
                 message = exception.Message,
-                statusCode = (int)HttpStatusCode.BadRequest
-            }));;
+                statusCode = StatusCodes.Status400BadRequest
+            }));
         }
     }
 }
