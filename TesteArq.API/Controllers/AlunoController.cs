@@ -28,6 +28,11 @@ namespace TesteArq.API.Controllers
         }
 
         // POST api/<AlunoController>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="aluno"></param>s
+        /// <response code ="400">Dados inválidos</response>
         [HttpPost]
         public async Task<ActionResult<AlunoDTO>> Post([FromBody] AlunoDTO aluno)
         {
