@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TesteArq.API.Middlewares;
 using TesteArq.Application.Interface;
 using TesteArq.Application.Mappings;
 using TesteArq.Application.Service;
@@ -33,6 +34,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
