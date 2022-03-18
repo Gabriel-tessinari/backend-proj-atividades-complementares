@@ -40,6 +40,7 @@ CREATE TABLE [dbo].[GrupoAtividades](
 
 CREATE TABLE [dbo].[Atividades](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] varchar(max) NOT NULL,
 	[GrupoAtividadesId] int not null,
 	[ConverterHoras] bit not null
 
@@ -50,7 +51,7 @@ CREATE TABLE [dbo].[Atividades](
 
 CREATE TABLE [dbo].[Pontuacao](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Pontuacao] [decimal](2, 2) NULL,
+	[Pontos] [decimal](2, 2) NULL,
 	[NumeroMaximo] [int] NOT NULL,
 	[AtividadeId] [int] NOT NULL,
 	[CursoId] [int] NOT NULL,
