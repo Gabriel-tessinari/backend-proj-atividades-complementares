@@ -47,7 +47,10 @@ namespace TesteArq.Data.Repository
         public async Task<IEnumerable<HorasComplementares>> FindBy(Expression<Func<HorasComplementares, bool>> predicate)
         {
             return await _context.Set<HorasComplementares>().Where(predicate)
-                                    .Include(x => x.Aluno).ToListAsync();
+                                    .Include(x => x.Aluno)
+                                    .Include(x => x.Status)
+                                    .Include(x => x.Pontuacao)
+                                    .ToListAsync();
         }
     }
 }
