@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using TesteArq.Data.Context;
 using TesteArq.Data.Interface;
@@ -28,7 +29,7 @@ namespace TesteArq.Data.Repository
 
         public async Task<IEnumerable<HorasComplementares>> GetAll()
         {
-            var horasComplementaress = await _context.HorasComplementares.ToListAsync();
+            var horasComplementaress = await _context.HorasComplementares.Include(x => x.Aluno).ToListAsync();
             return horasComplementaress;
         }
 
@@ -42,6 +43,11 @@ namespace TesteArq.Data.Repository
         {
             _context.HorasComplementares.Update(horasComplementares);
             await _context.SaveChangesAsync();
+        }
+        public async Task<IEnumerable<HorasComplementares>> FindBy(Expression<Func<HorasComplementares, bool>> predicate)
+        {
+            return await _context.Set<HorasComplementares>().Where(predicate)
+                                    .Include(x => x.Aluno).ToListAsync();
         }
     }
 }

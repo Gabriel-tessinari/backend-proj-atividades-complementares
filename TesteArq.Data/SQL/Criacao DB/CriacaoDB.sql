@@ -51,7 +51,7 @@ CREATE TABLE [dbo].[Atividades](
 
 CREATE TABLE [dbo].[Pontuacao](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Pontos] [decimal](2, 2) NULL,
+	[Pontos] Decimal(4, 2) NULL,
 	[NumeroMaximo] [int] NOT NULL,
 	[AtividadeId] [int] NOT NULL,
 	[CursoId] [int] NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE [dbo].[Conversao](
 	[PontuacaoId] int not null,
 	[IntervaloInic] int not null,
 	[IntervaloFim] int not null,
-	[Pontuacao] Decimal(2,2) not null,
+	[Pontuacao] Decimal(4,2) not null,
 
     CONSTRAINT PK_Conversao PRIMARY KEY (Id),
 	CONSTRAINT FK_Conversao_Pontuacao FOREIGN KEY ([PontuacaoId]) REFERENCES Pontuacao(Id)
@@ -86,7 +86,7 @@ CREATE TABLE [dbo].[HorasComplementares](
 	[PontuacaoId] int not null,
 	[Certificado] varchar(max) not null,
 	[StatusId] int not null,
-	[Observacao] varchar(max) not null,
+	[Observacao] varchar(max),
 	[Horas] int not null,
 
     CONSTRAINT PK_HorasComplementares PRIMARY KEY (Id),

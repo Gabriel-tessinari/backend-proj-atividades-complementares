@@ -13,14 +13,17 @@ namespace TesteArq.Application.DTOs.HorasComplementares
             Observacao = observacao;
             Horas = horas;
         }
+        public int Id { get; set; }
         public int AlunoId { get; set; }
         public int PontuacaoId { get; set; }
         public string Certificado { get; set; }
         public int StatusId { get; set; }
-        public string Observacao { get; set; }
+        public string? Observacao { get; set; }
         public int Horas { get; set; }
 
         public virtual Aluno? Aluno { get; set; }
+        public virtual Pontuacao? Pontuacao { get; set; }
+        public virtual Status? Status { get; set; }
 
     }
 }

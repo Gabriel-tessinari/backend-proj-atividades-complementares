@@ -6,12 +6,12 @@ using TesteArq.Domain.Entity;
 
 namespace TesteArq.Application.Service
 {
-    public class HorasComplementaresSerivce : IHorasComplementaresService
+    public class HorasComplementaresService : IHorasComplementaresService
     {
         private readonly IHorasComplementaresRepository _horasComplementaresRepository;
         private readonly IMapper _mapper;
 
-        public HorasComplementaresSerivce(IHorasComplementaresRepository horasComplementaresRepository, IMapper mapper)
+        public HorasComplementaresService(IHorasComplementaresRepository horasComplementaresRepository, IMapper mapper)
         {
             _horasComplementaresRepository = horasComplementaresRepository;
             _mapper = mapper;
@@ -45,7 +45,12 @@ namespace TesteArq.Application.Service
         {
             var horasComplementaresEntity = _mapper.Map<HorasComplementares>(horasComplementares);
             await _horasComplementaresRepository.Update(horasComplementaresEntity);
+        }
 
+        public async Task<IEnumerable<HorasComplementares>> GetByCurso(int cursoId)
+        {
+            var horasComplementaresEntity = await _horasComplementaresRepository.FindBy(x => x.Aluno.CursoId == cursoId);
+            return horasComplementaresEntity;
         }
     }
 }
