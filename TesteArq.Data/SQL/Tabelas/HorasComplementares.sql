@@ -4,7 +4,7 @@ CREATE TABLE [dbo].[HorasComplementares](
 	[PontuacaoId] int not null,
 	[Certificado] varchar(max) not null,
 	[StatusId] int not null,
-	[Observacao] varchar(max) not null,
+	[Observacao] varchar(max),
 	[Horas] int not null,
 
     CONSTRAINT PK_HorasComplementares PRIMARY KEY (Id),

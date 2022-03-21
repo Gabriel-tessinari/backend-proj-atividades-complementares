@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[Pontuacao](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Pontos] [decimal](2, 2) NULL,
+	[Pontos] Decimal(4, 2) NULL,
 	[NumeroMaximo] [int] NOT NULL,
 	[AtividadeId] [int] NOT NULL,
 	[CursoId] [int] NOT NULL,

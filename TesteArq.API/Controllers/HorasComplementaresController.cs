@@ -49,6 +49,12 @@ namespace TesteArq.API.Controllers
             await _horasComplementaresService.Delete(id);
             return Ok();
         }
+
+        [HttpGet("Curso/{cursoId:int}")]
+        public async Task<ActionResult<HorasComplementaresDTO>> GetByCurso(int cursoId)
+        {
+                return Ok(await _horasComplementaresService.GetByCurso(cursoId));
+        }
         
     }
 }

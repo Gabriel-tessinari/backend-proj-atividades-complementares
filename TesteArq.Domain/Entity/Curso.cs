@@ -9,6 +9,6 @@ namespace TesteArq.Domain.Entity
         }
         public string Name { get; set; }
         public int AreaId { get; set; }
-        public virtual Area? Area { get; set; }
+        public virtual Area Area { get; set; }
     }
 }
