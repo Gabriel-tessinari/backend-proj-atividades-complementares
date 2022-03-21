@@ -1,3 +1,5 @@
+using TesteArq.Domain.Entity;
+
 namespace TesteArq.Application.DTOs
 {
     public class CursoDTO
@@ -9,5 +11,6 @@ namespace TesteArq.Application.DTOs
         }
         public string Name { get; set; } 
         public int AreaId { get; set; } 
+        public virtual Area Area { get; set; }
     }
 }

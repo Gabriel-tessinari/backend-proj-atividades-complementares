@@ -17,6 +17,12 @@ namespace TesteArq.Data.Context
         public DbSet<Pontuacao> Pontuacao { get; set; }
         public DbSet<Status> Status { get; set; }
 
+        // Include Automatico sem precisar de include no Repository
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Aluno>().ToTable("Aluno");
