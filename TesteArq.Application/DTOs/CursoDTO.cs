@@ -9,6 +9,7 @@ namespace TesteArq.Application.DTOs
             Name = name;
             AreaId = areaId;
         }
+        public int Id { get; set; }
         public string Name { get; set; } 
         public int AreaId { get; set; } 
         public virtual Area Area { get; set; }
