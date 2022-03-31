@@ -52,5 +52,23 @@ namespace TesteArq.Application.Service
             var horasComplementaresEntity = await _horasComplementaresRepository.FindBy(x => x.Aluno.CursoId == cursoId);
             return horasComplementaresEntity;
         }
+
+        public async Task<HorasComplementaresDTO> UpdateStatus(UpdateStatusHorasComplementaresDTO updateStatus)
+        {
+            if(updateStatus.StatusId == 2 && updateStatus.Observacao == null)
+                throw new Exception("Se o status é recusado observação deve ser preenchido");
+
+            var horasComplementaresReal = await _horasComplementaresRepository.GetById(updateStatus.Id);
+
+            horasComplementaresReal.StatusId = updateStatus.StatusId;
+            horasComplementaresReal.Observacao = updateStatus.Observacao;
+
+            await _horasComplementaresRepository.Update(horasComplementaresReal);
+
+            return _mapper.Map<HorasComplementaresDTO>(horasComplementaresReal);
+;
+
+        }
+
     }
 }

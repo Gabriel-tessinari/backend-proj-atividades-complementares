@@ -11,5 +11,6 @@ namespace TesteArq.Application.Interface
         public Task Update(HorasComplementaresDTO horasComplementaresDto);
         public Task Delete(int Id);
         public Task<IEnumerable<HorasComplementares>> GetByCurso(int cursoId);
+        public Task<HorasComplementaresDTO> UpdateStatus(UpdateStatusHorasComplementaresDTO updateStatus);
     }
 }

@@ -55,6 +55,13 @@ namespace TesteArq.API.Controllers
         {
                 return Ok(await _horasComplementaresService.GetByCurso(cursoId));
         }
+
+        [HttpPost("AtualizaStatus")]
+        public async Task<ActionResult<HorasComplementaresDTO>> AtualizaStatus([FromBody] UpdateStatusHorasComplementaresDTO updateStatus)
+        {
+            return Ok(await _horasComplementaresService.UpdateStatus(updateStatus));
+
+        }
         
     }
 }
