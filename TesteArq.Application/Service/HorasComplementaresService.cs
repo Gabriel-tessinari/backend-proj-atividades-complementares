@@ -55,7 +55,7 @@ namespace TesteArq.Application.Service
 
         public async Task<HorasComplementaresDTO> UpdateStatus(UpdateStatusHorasComplementaresDTO updateStatus)
         {
-            if(updateStatus.StatusId == 2 && updateStatus.Observacao == null)
+            if(updateStatus.StatusId == 2 && string.IsNullOrEmpty(updateStatus.Observacao))
                 throw new Exception("Se o status é recusado observação deve ser preenchido");
 
             var horasComplementaresReal = await _horasComplementaresRepository.GetById(updateStatus.Id);
