@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TesteArq.Application.DTOs;
 using TesteArq.Application.Interface;
-using TesteArq.Domain.Entity;
 
 namespace TesteArq.API.Controllers
 {
@@ -18,72 +17,42 @@ namespace TesteArq.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AlunoDTO>>> Get()
         {
-            try
-            {
-                return Ok(await _alunoService.GetAll());
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _alunoService.GetAll());
         }
 
         // GET api/<AlunoController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult<AlunoDTO>> Get(int id)
         {
-            try
-            {
-                return Ok(await _alunoService.GetById(id));
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _alunoService.GetById(id));
         }
 
         // POST api/<AlunoController>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="aluno"></param>s
+        /// <response code ="400">Dados inválidos</response>
         [HttpPost]
         public async Task<ActionResult<AlunoDTO>> Post([FromBody] AlunoDTO aluno)
         {
-            try
-            {
-                return Ok(await _alunoService.Add(aluno));
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _alunoService.Add(aluno));
         }
 
         // PUT api/<AlunoController>/5
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] AlunoDTO aluno)
         {
-            try
-            {
-                await _alunoService.Update(aluno);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            await _alunoService.Update(aluno);
+            return Ok();
         }
 
         // DELETE api/<AlunoController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            try
-            {
-                await _alunoService.Delete(id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            await _alunoService.Delete(id);
+            return Ok();
         }
     }
 }

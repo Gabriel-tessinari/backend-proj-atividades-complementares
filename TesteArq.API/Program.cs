@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TesteArq.API.Middlewares;
 using TesteArq.Application.Interface;
 using TesteArq.Application.Mappings;
 using TesteArq.Application.Service;
@@ -6,7 +7,20 @@ using TesteArq.Data.Context;
 using TesteArq.Data.Interface;
 using TesteArq.Data.Repository;
 
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .AllowCredentials();
+                      });
+});
 
 // Add services to the container.
 
@@ -20,10 +34,13 @@ builder.Services.AddScoped<IAlunoService, AlunoService>();
 builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
 builder.Services.AddScoped<ICursoService, CursoSerivce>();
 builder.Services.AddScoped<ICursoRepository, CursoRepository>();
+builder.Services.AddScoped<IHorasComplementaresService, HorasComplementaresService>();
+builder.Services.AddScoped<IHorasComplementaresRepository, HorasComplementaresRepository>();
 builder.Services.AddAutoMapper(typeof(DtoMappingProfile));
 
 
 var app = builder.Build();
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -32,7 +49,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 
