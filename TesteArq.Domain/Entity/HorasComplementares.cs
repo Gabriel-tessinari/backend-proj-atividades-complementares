@@ -2,7 +2,7 @@ namespace TesteArq.Domain.Entity
 {
     public class HorasComplementares : BaseEntity
     {
-        public HorasComplementares(int alunoId, int pontuacaoId, string certificado, int statusId, string observacao, int horas)
+        public HorasComplementares(int alunoId, int pontuacaoId, string certificado, int statusId, string observacao, int horas, DateTime data)
         {
             AlunoId = alunoId;
             PontuacaoId = pontuacaoId;
@@ -10,6 +10,7 @@ namespace TesteArq.Domain.Entity
             StatusId = statusId;
             Observacao = observacao;
             Horas = horas;
+            Data = data;
         }
         public int AlunoId { get; set; }
         public int PontuacaoId { get; set; }
@@ -17,6 +18,7 @@ namespace TesteArq.Domain.Entity
         public int StatusId { get; set; }
         public string? Observacao { get; set; }
         public int Horas { get; set; }
+        public DateTime Data { get; set; }
         public virtual Aluno? Aluno { get; set; }
         public virtual Pontuacao? Pontuacao { get; set; }
         public virtual Status? Status { get; set; }

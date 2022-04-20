@@ -79,28 +79,24 @@ INSERT into [Status] ([Descricao]) VALUES
 ('Recusado'),
 ('Aprovado')
 
-INSERT into HorasComplementares ([AlunoId], [PontuacaoId], [Certificado], [StatusId],[Observacao], [Horas])
+INSERT into HorasComplementares ([AlunoId], [PontuacaoId], [Certificado], [StatusId],[Observacao], [Horas], [Data])
 VALUES
-(1,1,'Certificado.JPG', 1, null, 5),
-(1,3,'Certificado.JPG', 1, null, 14),
-(1,5,'Certificado.JPG', 1, null, 4),
-(2,1,'Certificado.JPG', 1, null, 10),
-(2,3,'Certificado.JPG', 1, null, 7),
-(2,5,'Certificado.JPG', 1, null, 1),
-(2,1,'Certificado.JPG', 1, null, 2),
-(3,1,'Certificado.JPG', 1, null, 8),
-(5,1,'Certificado.JPG', 1, null, 8),
-(6,1,'Certificado.JPG', 1, null, 8),
-(6,1,'Certificado.JPG', 1, null, 8),
-(6,1,'Certificado.JPG', 1, null, 8),
-(8,1,'Certificado.JPG', 1, null, 8),
-(9,1,'Certificado.JPG', 1, null, 8),
-(9,1,'Certificado.JPG', 1, null, 8),
-(11,1,'Certificado.JPG', 1, null, 8),
-(12,1,'Certificado.JPG', 1, null, 8),
-(15,1,'Certificado.JPG', 1, null, 8),
-(16,1,'Certificado.JPG', 1, null, 8)
-
-
-
-
+(1,1,'Certificado.JPG', 1, null, 5, '20220401'),
+(1,3,'Certificado.JPG', 1, null, 14, '20220402'),
+(1,5,'Certificado.JPG', 1, null, 4, '20220403'),
+(2,1,'Certificado.JPG', 1, null, 10, '20220404'),
+(2,3,'Certificado.JPG', 1, null, 7, '20220405'),
+(2,5,'Certificado.JPG', 1, null, 1, '20220406'),
+(2,1,'Certificado.JPG', 1, null, 2, '20220407'),
+(3,1,'Certificado.JPG', 1, null, 8, '20220401'),
+(5,1,'Certificado.JPG', 1, null, 8, '20220402'),
+(6,1,'Certificado.JPG', 1, null, 8, '20220403'),
+(6,1,'Certificado.JPG', 1, null, 8, '20220404'),
+(6,1,'Certificado.JPG', 1, null, 8, '20220405'),
+(8,1,'Certificado.JPG', 1, null, 8, '20220410'),
+(9,1,'Certificado.JPG', 1, null, 8, '20220412'),
+(9,1,'Certificado.JPG', 1, null, 8, '20220413'),
+(11,1,'Certificado.JPG', 1, null, 8, '20220417'),
+(12,1,'Certificado.JPG', 1, null, 8, '20220415'),
+(15,1,'Certificado.JPG', 1, null, 8, '20220420'),
+(16,1,'Certificado.JPG', 1, null, 8, '20220416')
