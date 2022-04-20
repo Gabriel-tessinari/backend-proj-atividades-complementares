@@ -88,6 +88,7 @@ CREATE TABLE [dbo].[HorasComplementares](
 	[StatusId] int not null,
 	[Observacao] varchar(max),
 	[Horas] int not null,
+	[Data] DATETIME NOT NULL
 
     CONSTRAINT PK_HorasComplementares PRIMARY KEY (Id),
 	CONSTRAINT FK_HorasComplementares_Aluno FOREIGN KEY ([AlunoId]) REFERENCES Aluno(Id),
