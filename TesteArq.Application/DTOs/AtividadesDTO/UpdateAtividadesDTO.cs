@@ -1,16 +1,17 @@
-namespace TesteArq.Domain.Entity
+namespace TesteArq.Application.DTOs.AtividadesDTO
 {
-    public class Atividades : BaseEntity
+    public class UpdateAtividadesDTO
     {
-        public Atividades(string nome, int grupoAtividadesId, bool converterHoras)
+        public UpdateAtividadesDTO(int id, string nome, int grupoAtividadesId, bool converterHoras)
         {
+            Id = id;
             Nome = nome;
             GrupoAtividadesId = grupoAtividadesId;
             ConverterHoras = converterHoras;
         }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public int GrupoAtividadesId { get; set; }
         public bool ConverterHoras { get; set; }
-        public virtual GrupoAtividades GrupoAtividades { get; set; }
     }
 }
