@@ -38,6 +38,8 @@ builder.Services.AddScoped<IHorasComplementaresService, HorasComplementaresServi
 builder.Services.AddScoped<IHorasComplementaresRepository, HorasComplementaresRepository>();
 builder.Services.AddScoped<IAtividadesService, AtividadesService>();
 builder.Services.AddScoped<IAtividadesRepository, AtividadesRepository>();
+builder.Services.AddScoped<IGrupoAtividadesRepository, GrupoAtividadesRepository>();
+builder.Services.AddScoped<IGrupoAtividadesService, GrupoAtividadesService>();
 builder.Services.AddAutoMapper(typeof(DtoMappingProfile));
 
 
