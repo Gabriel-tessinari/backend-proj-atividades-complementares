@@ -1,5 +1,6 @@
 using AutoMapper;
 using TesteArq.Application.DTOs;
+using TesteArq.Application.DTOs.AtividadesDTO;
 using TesteArq.Application.DTOs.HorasComplementares;
 using TesteArq.Domain.Entity;
 
@@ -13,6 +14,9 @@ namespace TesteArq.Application.Mappings
             CreateMap<Curso,CursoDTO>().ReverseMap();
             CreateMap<HorasComplementares,HorasComplementaresDTO>().ReverseMap();
             CreateMap<HorasComplementares,CreateHorasComplementaresDTO>().ReverseMap();
+            CreateMap<Atividades,AtividadesDTO>().ReverseMap();
+            CreateMap<Atividades,CreateAtividadesDTO>().ReverseMap();
+            CreateMap<Atividades,UpdateAtividadesDTO>().ReverseMap();
         }
     }
 }

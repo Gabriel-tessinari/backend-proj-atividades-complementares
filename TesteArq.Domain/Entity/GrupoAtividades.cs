@@ -2,10 +2,10 @@ namespace TesteArq.Domain.Entity
 {
     public class GrupoAtividades : BaseEntity
     {
-        public GrupoAtividades(string name)
+        public GrupoAtividades(string nome)
         {
-            Name = name;
+            Nome = nome;
         }
-        public string Name { get; set; }
+        public string Nome { get; set; }
     }
 }
