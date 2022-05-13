@@ -10,6 +10,6 @@ namespace TesteArq.Application.Interface
         public Task<CursoDTO> Add(CursoDTO cursoDto);
         public Task Update(CursoDTO cursoDto);
         public Task Delete(int Id);
-         
+        public Task<IEnumerable<Curso>> GetByArea(int areaId);
     }
 }
