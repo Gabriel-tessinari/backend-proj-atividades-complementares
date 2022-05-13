@@ -20,6 +20,7 @@ namespace TesteArq.Application.Mappings
             CreateMap<Atividades,UpdateAtividadesDTO>().ReverseMap();
             CreateMap<GrupoAtividades,CreateGrupoAtividadesDTO>().ReverseMap();
             CreateMap<GrupoAtividades,GrupoAtividadesDTO>().ReverseMap();
+            CreateMap<Area,AreaDTO>().ReverseMap();
         }
     }
 }
