@@ -47,5 +47,11 @@ namespace TesteArq.Application.Service
             await _cursoRepository.Update(cursoEntity);
 
         }
+
+        public async Task<IEnumerable<Curso>> GetByArea(int areaId)
+        {
+            var horasComplementaresEntity = await _cursoRepository.FindBy(x => x.AreaId == areaId);
+            return horasComplementaresEntity;
+        }
     }
 }

@@ -48,6 +48,12 @@ namespace TesteArq.API.Controllers
             await _cursoService.Delete(id);
             return Ok();
         }
+
+        [HttpGet("Area/{areaId:int}")]
+        public async Task<ActionResult<CursoDTO>> GetByCurso(int areaId)
+        {
+                return Ok(await _cursoService.GetByArea(areaId));
+        }
         
     }
 }
