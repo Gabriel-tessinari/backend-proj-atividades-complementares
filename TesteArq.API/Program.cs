@@ -40,6 +40,8 @@ builder.Services.AddScoped<IAtividadesService, AtividadesService>();
 builder.Services.AddScoped<IAtividadesRepository, AtividadesRepository>();
 builder.Services.AddScoped<IGrupoAtividadesRepository, GrupoAtividadesRepository>();
 builder.Services.AddScoped<IGrupoAtividadesService, GrupoAtividadesService>();
+builder.Services.AddScoped<IAreaRepository, AreaRepository>();
+builder.Services.AddScoped<IAreaService, AreaService>();
 builder.Services.AddAutoMapper(typeof(DtoMappingProfile));
 
 
