@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TesteArq.Application.DTOs;
 using TesteArq.Application.DTOs.HorasComplementares;
 using TesteArq.Application.Interface;
 
@@ -61,6 +62,11 @@ namespace TesteArq.API.Controllers
         {
             return Ok(await _horasComplementaresService.UpdateStatus(updateStatus));
 
+        }
+        [HttpGet("Pontuacao/{alunoId:int}")]
+        public async Task<ActionResult<PontuacaoAlunoDTO>> GetPontuacao(int alunoId)
+        {
+                return Ok(await _horasComplementaresService.GetPontuacao(alunoId));
         }
         
     }

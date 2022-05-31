@@ -1,4 +1,5 @@
 using AutoMapper;
+using TesteArq.Application.DTOs;
 using TesteArq.Application.DTOs.HorasComplementares;
 using TesteArq.Application.Interface;
 using TesteArq.Data.Interface;
@@ -9,12 +10,15 @@ namespace TesteArq.Application.Service
     public class HorasComplementaresService : IHorasComplementaresService
     {
         private readonly IHorasComplementaresRepository _horasComplementaresRepository;
+        private readonly ICursoRepository _cursoRepository;
+
         private readonly IMapper _mapper;
 
-        public HorasComplementaresService(IHorasComplementaresRepository horasComplementaresRepository, IMapper mapper)
+        public HorasComplementaresService(IHorasComplementaresRepository horasComplementaresRepository, IMapper mapper, ICursoRepository cursoRepository)
         {
             _horasComplementaresRepository = horasComplementaresRepository;
             _mapper = mapper;
+            _cursoRepository = cursoRepository;
         }
         public async Task<CreateHorasComplementaresDTO> Add(CreateHorasComplementaresDTO horasComplementaresDto)
         {
@@ -66,9 +70,27 @@ namespace TesteArq.Application.Service
             await _horasComplementaresRepository.Update(horasComplementaresReal);
 
             return _mapper.Map<HorasComplementaresDTO>(horasComplementaresReal);
-;
-
         }
 
+        public async Task<PontuacaoAlunoDTO> GetPontuacao(int alunoId)
+        {
+            decimal pontuacaoAluno = 0;
+            bool aprovado = false;
+            var atividadesPontuadas = await _horasComplementaresRepository.FindBy(x => x.AlunoId == alunoId && x.Status.Descricao == "Aprovado");
+            if(atividadesPontuadas == null)
+                throw new Exception("Aluno não tem atividades Aprovadas");
+
+            foreach (var pontos in atividadesPontuadas)
+            {
+                pontuacaoAluno += pontos.Pontuacao.Pontos;
+            }
+            var curso = await _cursoRepository.GetById(atividadesPontuadas.FirstOrDefault().Aluno.CursoId);
+            if(pontuacaoAluno > curso.PontuacaoMin)
+                aprovado = true;
+            
+            var resultado = new PontuacaoAlunoDTO(aprovado, pontuacaoAluno);
+            return resultado;
+
+        }
     }
 }

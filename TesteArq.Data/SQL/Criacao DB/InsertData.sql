@@ -4,13 +4,13 @@ insert into Area ([Name]) VALUES
 ('Tecnologia'), 
 ('Saude')
 
-Insert into Curso ([Name], [AreaId]) VALUES 
-('Ciencia da Computação', 1), 
-('Engenharia da Computação', 1), 
-('sistema de Informação', 1),
-('Medicina', 2),
-('Enfermagem', 2),
-('Nutrição', 2)
+Insert into Curso ([Name],[PontuacaoMin], [AreaId]) VALUES 
+('Ciencia da Computação', 7, 1), 
+('Engenharia da Computação',7, 1), 
+('sistema de Informação', 7, 1),
+('Medicina',7, 2),
+('Enfermagem',7, 2),
+('Nutrição',7, 2)
 
 
 insert into Aluno ([Matricula], [Nome], [CursoId]) VALUES

@@ -1,3 +1,4 @@
+using TesteArq.Application.DTOs;
 using TesteArq.Application.DTOs.HorasComplementares;
 using TesteArq.Domain.Entity;
 
@@ -12,5 +13,6 @@ namespace TesteArq.Application.Interface
         public Task Delete(int Id);
         public Task<IEnumerable<HorasComplementares>> GetByCurso(int cursoId);
         public Task<HorasComplementaresDTO> UpdateStatus(UpdateStatusHorasComplementaresDTO updateStatus);
+        public Task<PontuacaoAlunoDTO> GetPontuacao(int alunoId);
     }
 }

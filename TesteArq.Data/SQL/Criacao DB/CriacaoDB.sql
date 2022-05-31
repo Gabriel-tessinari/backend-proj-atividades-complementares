@@ -15,6 +15,7 @@ Create table [dbo].[Area](
 Create table [dbo].[Curso](
     Id INT IDENTITY(1,1) NOT NULL,
     Name VARCHAR(MAX) NOT NULL,
+	PontuacaoMin Decimal(4, 2) Not null,
 	AreaId int NOT null
 
     CONSTRAINT PK_Curso PRIMARY KEY (Id)
@@ -88,7 +89,8 @@ CREATE TABLE [dbo].[HorasComplementares](
 	[StatusId] int not null,
 	[Observacao] varchar(max),
 	[Horas] int not null,
-	[Data] DATETIME NOT NULL
+	[Data] DATETIME NOT NULL,
+	[Descricao] varchar(max)
 
     CONSTRAINT PK_HorasComplementares PRIMARY KEY (Id),
 	CONSTRAINT FK_HorasComplementares_Aluno FOREIGN KEY ([AlunoId]) REFERENCES Aluno(Id),
